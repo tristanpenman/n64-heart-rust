@@ -1,6 +1,36 @@
 # N64 💛 Rust
 
-This repo will contain source code for a simple N64 ROM, built using Rust.
+This repo will contain source code for a selection of simple Nintendo 64 ROMs, demonstrating how Rust can be used to program the Nintendo 64.
+
+## Examples
+
+This is the rough outline for the examples in this repo:
+
+1. [Old School C](#old-school-c)
+2. [Calling Rust from C](#calling-rust-from-c)
+3. [Booting from Rust](#booting-from-rust)
+4. [Libdragon in C](#libdragon-in-c)
+5. [Libdragon in Rust](#libdragon-in-rust)
+
+### Old School C
+
+When working with something like the Nintendo 64, it helps to a frame of reference. As a starting point, [01-old-school-c](./01-old-school-c/) provides the basic structure for a game written in C. It can be compiled with both legacy and modern SDKs, and includes minimal 3D graphics.
+
+### Calling Rust from C
+
+The next example, [02-calling-rust-from-c](./02-calling-rust-from-c/), takes a small step towards using Rust, by calling Rust from C. This would allow you to write your game logic in Rust, but continue to rely on C to access SDK functionality.
+
+### Booting from Rust
+
+Going a step further, [03-booting-rust](./03-booting-rust/) looks at how we can build an entire ROM using Rust and Cargo. This completely bypasses the Nintendo 64 SDK, and interfaces with the hardware directly. This is essentially OS development on the N64.
+
+### Libdragon in C
+
+This is another example that serves as a reference point. This time we use [libdragon](), an open source alternative to the official SDK. [04-libdragon-in-c](./04-libdragon-in-c/) provides a small example that shows how Libdragon works in C.
+
+### Libdragon in Rust
+
+In the final example, [05-libdragon-in-rust](./05-libdragon-in-rust/), we look at how to work with Libdragon from Rust, taking advantage of some publically available Rust bindings.
 
 ## References
 
