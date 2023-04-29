@@ -32,6 +32,10 @@ This is another example that serves as a reference point. This time we use [libd
 
 In the final example, [05-libdragon-in-rust](./examples/05-libdragon-in-rust/), we look at how to work with Libdragon from Rust, taking advantage of some publically available Rust bindings.
 
+## Notes
+
+Various notes about Nintendo 64 architecture and development can be found in the [notes](./notes) directory.
+
 ## References
 
 **Websites**
