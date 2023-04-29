@@ -14,23 +14,23 @@ This is the rough outline for the examples in this repo:
 
 ### Old School C
 
-When working with something like the Nintendo 64, it helps to a frame of reference. As a starting point, [01-old-school-c](./01-old-school-c/) provides the basic structure for a game written in C. It can be compiled with both legacy and modern SDKs, and includes minimal 3D graphics.
+When working with something like the Nintendo 64, it helps to a frame of reference. As a starting point, [01-old-school-c](./examples/01-old-school-c/) provides the basic structure for a game written in C. It can be compiled with both legacy and modern SDKs, and includes minimal 3D graphics.
 
 ### Calling Rust from C
 
-The next example, [02-calling-rust-from-c](./02-calling-rust-from-c/), takes a small step towards using Rust, by calling Rust from C. This would allow you to write your game logic in Rust, but continue to rely on C to access SDK functionality.
+The next example, [02-calling-rust-from-c](./examples/02-calling-rust-from-c/), takes a small step towards using Rust, by calling Rust from C. This would allow you to write your game logic in Rust, but continue to rely on C to access SDK functionality.
 
 ### Booting from Rust
 
-Going a step further, [03-booting-rust](./03-booting-rust/) looks at how we can build an entire ROM using Rust and Cargo. This completely bypasses the Nintendo 64 SDK, and interfaces with the hardware directly. This is essentially OS development on the N64.
+Going a step further, [03-booting-rust](./examples/03-booting-rust/) looks at how we can build an entire ROM using Rust and Cargo. This completely bypasses the Nintendo 64 SDK, and interfaces with the hardware directly. This is essentially OS development on the N64.
 
 ### Libdragon in C
 
-This is another example that serves as a reference point. This time we use [libdragon](), an open source alternative to the official SDK. [04-libdragon-in-c](./04-libdragon-in-c/) provides a small example that shows how Libdragon works in C.
+This is another example that serves as a reference point. This time we use [libdragon](), an open source alternative to the official SDK. [04-libdragon-in-c](./examples/04-libdragon-in-c/) provides a small example that shows how Libdragon works in C.
 
 ### Libdragon in Rust
 
-In the final example, [05-libdragon-in-rust](./05-libdragon-in-rust/), we look at how to work with Libdragon from Rust, taking advantage of some publically available Rust bindings.
+In the final example, [05-libdragon-in-rust](./examples/05-libdragon-in-rust/), we look at how to work with Libdragon from Rust, taking advantage of some publically available Rust bindings.
 
 ## References
 
