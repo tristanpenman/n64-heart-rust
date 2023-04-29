@@ -1,0 +1,15 @@
+[package]
+name = "calling-rust-from-c"
+version = "0.1.0"
+
+[lib]
+name = "minimal"
+crate-type = ["staticlib"]
+
+[dependencies]
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"
