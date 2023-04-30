@@ -44,6 +44,7 @@ SRC_DIRS       += src asm assets
 
 C_FILES        := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.c))
 S_FILES        := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.s))
+RS_FILES       := $(shell find src -type f -name '*.rs')
 
 # Object files
 O_FILES := /usr/lib/n64/nusys/nusys_rom.o \
@@ -135,7 +136,7 @@ $(BUILD_DIR)/%.o: $(BUILD_DIR)/%.c
 	$(V)$(CC) -c $(CFLAGS) -MMD -MF $(BUILD_DIR)/$*.d  -o $@ $<
 
 # Compile Rust
-$(RUSTLIB):
+$(RUSTLIB): $(RS_FILES)
 	$(call print,Cargo:,$<,$@)
 	$(V)$(CARGO) build $(CARGO_OPTS)
 
