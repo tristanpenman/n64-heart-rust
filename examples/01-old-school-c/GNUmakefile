@@ -1,4 +1,4 @@
-TARGET_STRING := box
+TARGET_STRING := old-school-c
 TARGET := $(TARGET_STRING)
 
 # Preprocessor definitions
