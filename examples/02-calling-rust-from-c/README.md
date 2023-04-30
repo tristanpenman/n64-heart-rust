@@ -24,8 +24,6 @@ Just run `make`. The final ROM will be written to `build/calling-rust-from-c.z64
 
 ## Details
 
-### Background
-
 This example is based on [example 1](../01-old-school-c/). However, instead of choosing which stage to initialise using a `#define`, we call a function defined in a Rust library. This function is defined as:
 
 ```
@@ -65,4 +63,4 @@ Doesn't affect the stability of this example, but could become relevant if float
 
 ## Acknowledgements
 
-This example is based on work published by [MrPeanut](https://github.com/Mr-Pnut) in the [N64-Rust-Sample](https://github.com/Mr-Pnut/N64-Rust-Sample) repo on GitHub.
+This example is based on work published in the [N64-Rust-Sample](https://github.com/Mr-Pnut/N64-Rust-Sample) repo on GitHub.

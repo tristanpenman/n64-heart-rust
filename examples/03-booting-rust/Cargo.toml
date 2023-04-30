@@ -1,0 +1,6 @@
+[workspace]
+members = [
+    "hello-ipl3font",
+    "n64lib",
+    "rrt0"
+]
