@@ -1,0 +1,3 @@
+[submodule "thirdparty/libdragon"]
+	path = thirdparty/libdragon
+	url = git@github.com:DragonMinded/libdragon.git
