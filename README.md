@@ -1,10 +1,8 @@
 # N64 💛 Rust
 
-This repo will contain source code for a selection of simple Nintendo 64 ROMs, demonstrating how Rust can be used to program the Nintendo 64.
+This repo contains source code for a selection of simple Nintendo 64 ROMs. These examples demonstrate how Rust can be used to program the Nintendo 64.
 
 ## Examples
-
-This is the rough outline for the examples in this repo:
 
 1. [Old School C](#old-school-c)
 2. [Calling Rust from C](#calling-rust-from-c)
