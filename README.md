@@ -9,6 +9,7 @@ This repo contains source code for a selection of simple Nintendo 64 ROMs. These
 3. [Booting from Rust](#booting-from-rust)
 4. [Libdragon in C](#libdragon-in-c)
 5. [Libdragon in Rust](#libdragon-in-rust)
+6. [Slide Tool](#slide-tool)
 
 ### Old School C
 
@@ -29,6 +30,10 @@ This is another example that serves as a reference point. This time we use [libd
 ### Libdragon in Rust
 
 In the final example, [05-libdragon-in-rust](./examples/05-libdragon-in-rust/), we look at how to work with Libdragon from Rust, taking advantage of some publically available Rust bindings.
+
+### Slide Tool
+
+The [06-slide-tool](./examples/06-slide-tool) example is an adaptation of Tristan Miller's [n64-slides-apr](https://github.com/monocasa/n64-slides-apr) repo, incorporating changes from [n64-systemtest](https://github.com/lemmy-64/n64-systemtest).
 
 ## Notes
 
