@@ -1,0 +1,19 @@
+[package]
+name = "slide-tool"
+version = "0.1.0"
+
+[dependencies]
+rt = { path = "./rt" }
+periph = { path = "./periph" }
+panic-halt = "0.2.0"
+volatile = "0.2.3"
+
+[[bin]]
+name = "slide-tool"
+test = false
+bench = false
+
+[profile.release]
+codegen-units = 1
+debug = true
+lto = true
