@@ -2,6 +2,10 @@
 
 The easiest way for us to integrate Rust code into a Nintendo 64 ROM is to call Rust from C. Doing this allows us to compile some of our code as a Rust library, and call to that from C.
 
+## Acknowledgements
+
+This example is based on work published in the [N64-Rust-Sample](https://github.com/Mr-Pnut/N64-Rust-Sample) repo on GitHub.
+
 ## Prerequisites
 
 This example will require the following to be installed:
@@ -60,7 +64,3 @@ mips-n64-ld: warning: build/calling-rust-from-c.elf uses -mdouble-float (set by 
 ```
 
 Doesn't affect the stability of this example, but could become relevant if floating point operations are involved.
-
-## Acknowledgements
-
-This example is based on work published in the [N64-Rust-Sample](https://github.com/Mr-Pnut/N64-Rust-Sample) repo on GitHub.
