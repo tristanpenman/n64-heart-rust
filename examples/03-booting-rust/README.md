@@ -1,5 +1,13 @@
 # Example 3 - Booting Rust
 
+This example shows how we can build an entire ROM using Rust and Cargo.
+
+## Acknowledgements
+
+This is based on Jay Oster's [rrt0](https://github.com/rust-console/rrt0) repo on GitHub.
+
+It also makes use of [cargo-n64](https://github.com/rust-console/cargo-n64), which allows N64 ROMs to be built using Cargo.
+
 ## Prerequisites
 
 This example is pure Rust, so there are no SDK dependencies. It does, however, require the use of a custom `cargo` subcommand:
@@ -30,8 +38,3 @@ Unlike previous examples, there is no SDK being used here. The only Nintendo-der
 The entry point for our ROM is defined in [entrypoint.s](./rrt0/src/platforms/n64/entrypoint.s). This is written in MIPS assembly language.
 
 Some very basic VI (Video Interface) functionality is defined in the [n64lib](./n64lib/) library. This includes code to make use of a font embedded in the IPL3 binary.
-
-## Acknowledgements
-
-This example is based on work published in the [rrt0](https://github.com/rust-console/rrt0) repo on GitHub.
-
