@@ -1,5 +1,7 @@
 #![no_std]
 
+extern crate rrt0;
+
 pub mod ipl3font;
 pub mod vi;
 

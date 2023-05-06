@@ -25,11 +25,11 @@ The N64 IPL3 binary can be found in the SDK, or extracted from a ROM.
 
 To build with an existing IPL3 binary blob:
 
-    cargo n64 build --ipl3 <path-to-ipl3.bin> -- --package hello-ipl3font
+    cargo n64 build --ipl3 <path-to-ipl3.bin>
 
 To build using the IPL3 extracted from an existing ROM:
 
-    cargo n64 build --ipl3-from-rom <path-to-rom.z64> -- --package hello-ipl3font
+    cargo n64 build --ipl3-from-rom <path-to-rom.z64>
 
 ## Details
 
@@ -37,4 +37,4 @@ Unlike previous examples, there is no SDK being used here. The only Nintendo-der
 
 The entry point for our ROM is defined in [entrypoint.s](./rrt0/src/platforms/n64/entrypoint.s). This is written in MIPS assembly language.
 
-Some very basic VI (Video Interface) functionality is defined in the [n64lib](./n64lib/) library. This includes code to make use of a font embedded in the IPL3 binary.
+Some very basic VI (Video Interface) definitions are included in the [n64lib](./n64lib/) library. This includes code to make use of a font embedded in the IPL3 binary.
