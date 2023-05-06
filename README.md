@@ -7,9 +7,9 @@ This repo contains source code for a selection of simple Nintendo 64 ROMs. These
 1. [Old School C](#old-school-c)
 2. [Calling Rust from C](#calling-rust-from-c)
 3. [Booting from Rust](#booting-from-rust)
-4. [Libdragon in C](#libdragon-in-c)
-5. [Libdragon in Rust](#libdragon-in-rust)
-6. [Slide Tool](#slide-tool)
+4. [Slide Tool](#slide-tool)
+5. [Libdragon in C](#libdragon-in-c)
+6. [Libdragon in Rust](#libdragon-in-rust)
 
 ### Old School C
 
@@ -19,21 +19,27 @@ When working with something like the Nintendo 64, it helps to a frame of referen
 
 The next example, [02-calling-rust-from-c](./examples/02-calling-rust-from-c/), takes a small step towards using Rust, by calling Rust from C. This would allow you to write your game logic in Rust, but continue to rely on C to access SDK functionality.
 
+This example is based on MrPeanut's [N64-Rust-Sample](https://github.com/Mr-Pnut/N64-Rust-Sample) repo.
+
 ### Booting from Rust
 
 Going a step further, [03-booting-rust](./examples/03-booting-rust/) looks at how we can build an entire ROM using Rust and Cargo. This completely bypasses the Nintendo 64 SDK, and interfaces with the hardware directly. This is essentially OS development on the N64.
 
-### Libdragon in C
-
-This is another example that serves as a reference point. This time we use [libdragon](), an open source alternative to the official SDK. [04-libdragon-in-c](./examples/04-libdragon-in-c/) provides a small example that shows how Libdragon works in C.
-
-### Libdragon in Rust
-
-In the final example, [05-libdragon-in-rust](./examples/05-libdragon-in-rust/), we look at how to work with Libdragon from Rust, taking advantage of some publically available Rust bindings.
+This example is based on Jay Oster's [rrt0](https://github.com/rust-console/rrt0) repo.
 
 ### Slide Tool
 
-The [06-slide-tool](./examples/06-slide-tool) example is an adaptation of Tristan Miller's [n64-slides-apr](https://github.com/monocasa/n64-slides-apr) repo, incorporating changes from [n64-systemtest](https://github.com/lemmy-64/n64-systemtest).
+The [04-slide-tool](./examples/04-slide-tool) shows how Rust can be used to make a simple slide presentation tool.
+
+This example is an adaptation of Tristan Miller's [n64-slides-apr](https://github.com/monocasa/n64-slides-apr), [rs64-periph](https://github.com/monocasa/rs64-periph) and [rs64-rt](https://github.com/monocasa/rs64-rt) repos, incorporating minor changes from [rrt0](https://github.com/rust-console/rrt0).
+
+### Libdragon in C
+
+This is another example that serves as a reference point. This time we use [libdragon](https://github.com/DragonMinded/libdragon), an open source alternative to the official SDK. [05-libdragon-in-c](./examples/05-libdragon-in-c/) provides a small example that shows how Libdragon works in C.
+
+### Libdragon in Rust
+
+In the final example, [06-libdragon-in-rust](./examples/06-libdragon-in-rust/), we look at how to work with Libdragon from Rust, taking advantage of some publically available Rust bindings.
 
 ## Notes
 
