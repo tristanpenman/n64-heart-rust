@@ -58,7 +58,7 @@ pub unsafe extern "C" fn entry() {
                 console::flush();
             }
             &Slide::Image(offset) => {
-                let cart_data_base = 0x1010_1000;
+                let cart_data_base = 0x1020_0000;
                 let image_size = WIDTH * HEIGHT * 2;
                 let cart_image_base = (image_size * offset) + cart_data_base;
 
