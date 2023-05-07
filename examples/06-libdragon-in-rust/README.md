@@ -1,3 +1,3 @@
-# Example 5 - Libdragon in Rust
+# Example 6 - Libdragon in Rust
 
 TODO
