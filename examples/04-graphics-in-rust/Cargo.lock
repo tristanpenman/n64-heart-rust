@@ -3,6 +3,16 @@
 version = 3
 
 [[package]]
+name = "graphics-in-rust"
+version = "0.1.0"
+dependencies = [
+ "panic-halt",
+ "periph",
+ "rt",
+ "volatile",
+]
+
+[[package]]
 name = "panic-halt"
 version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -20,16 +30,6 @@ name = "rt"
 version = "0.1.0"
 dependencies = [
  "periph",
-]
-
-[[package]]
-name = "slide-tool"
-version = "0.1.0"
-dependencies = [
- "panic-halt",
- "periph",
- "rt",
- "volatile",
 ]
 
 [[package]]

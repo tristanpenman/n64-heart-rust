@@ -1,5 +1,5 @@
 [package]
-name = "slide-tool"
+name = "graphics-in-rust"
 version = "0.1.0"
 
 [dependencies]
@@ -9,7 +9,7 @@ panic-halt = "0.2.0"
 volatile = "0.2.3"
 
 [[bin]]
-name = "slide-tool"
+name = "graphics-in-rust"
 test = false
 bench = false
 
