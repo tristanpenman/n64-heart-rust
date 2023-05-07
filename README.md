@@ -7,10 +7,10 @@ This repo contains source code for a selection of simple Nintendo 64 ROMs. These
 1. [Old School C](#old-school-c)
 2. [Calling Rust from C](#calling-rust-from-c)
 3. [Booting from Rust](#booting-from-rust)
-4. [Slide Tool](#slide-tool)
+4. [Graphics in Rust](#graphics-in-rust)
 5. [Libdragon in C](#libdragon-in-c)
 6. [Libdragon in Rust](#libdragon-in-rust) - Incomplete
-7. [3D Graphics in Rust](#3d-graphics-in-rust) - Incomplete
+7. [More Graphics in Rust](#more-graphics-in-rust) - Incomplete
 
 ### Old School C
 
@@ -28,9 +28,9 @@ Going a step further, [03-booting-rust](./examples/03-booting-rust/) looks at ho
 
 This example is based on Jay Oster's [rrt0](https://github.com/rust-console/rrt0) repo.
 
-### Slide Tool
+### Graphics in Rust
 
-The [04-slide-tool](./examples/04-slide-tool) shows how Rust can be used to make a simple slide presentation tool.
+The [04-graphics-in-rust](./examples/04-graphics-in-rust) shows how Rust can be used to display simple text and full-screen images.
 
 This example is an adaptation of Tristan Miller's [n64-slides-apr](https://github.com/monocasa/n64-slides-apr), [rs64-periph](https://github.com/monocasa/rs64-periph) and [rs64-rt](https://github.com/monocasa/rs64-rt) repos, incorporating minor changes from [rrt0](https://github.com/rust-console/rrt0).
 
@@ -44,7 +44,7 @@ This is another example that serves as a reference point. This time we use [libd
 
 The aim of the next example, [06-libdragon-in-rust](./examples/06-libdragon-in-rust/), is to show how we can use Libdragon from Rust, using Rust bindings to the Libdragon library.
 
-### 3D Graphics In Rust
+### More Graphics In Rust
 
 **NOTE: This example is incomplete.**
 
