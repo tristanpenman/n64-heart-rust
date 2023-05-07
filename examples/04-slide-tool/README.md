@@ -1,4 +1,4 @@
-# Example 6 - Slide Tool
+# Example 4 - Slide Tool
 
 This example builds upon [03-booting-rust](../examples/03-booting-rust) by introducing some basic interactivity. We'll see that it's not too difficult to use the Nintendo 64 to display a simple slide deck.
 
