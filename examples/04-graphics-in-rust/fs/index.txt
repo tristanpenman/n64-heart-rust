@@ -1,1 +1,2 @@
-outside.bin
+slide-01.bin
+slide-02.bin
