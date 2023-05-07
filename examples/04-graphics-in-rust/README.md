@@ -1,6 +1,6 @@
-# Example 4 - Slide Tool
+# Example 4 - Graphics in Rust
 
-This example builds upon [03-booting-rust](../examples/03-booting-rust) by introducing some basic interactivity. We'll see that it's not too difficult to use the Nintendo 64 to display a simple slide deck.
+This example builds upon [03-booting-rust](../examples/03-booting-rust) by introducing some basic graphics and interactivity. We'll see that it's not too difficult to use the Nintendo 64 to display images and text.
 
 ## Acknowledgements
 
@@ -13,12 +13,22 @@ The original code used two other repos published by Miller:
 
 These required some minor modifications to compile, which are included here in [periph](./periph) and [rt](./rt).
 
+## Prerequisites
+
+Install cargo-n64:
+
+```
+cargo install cargo-n64
+```
+
+Install rs64-romtool (used to update checksum at the end):
+
+```
+cargo install rs64-romtool
+```
+
 ## Build
 
-To build with an existing IPL3 binary blob:
+A simple Makefile has been included in this project, meaning the easiest way to build the ROM is to run `make`.
 
-    cargo n64 build --ipl3 <path-to-ipl3.bin> -- --package hello-ipl3font
-
-To build using the IPL3 extracted from an existing ROM:
-
-    cargo n64 build --ipl3-from-rom <path-to-rom.z64> -- --package hello-ipl3font
+This will ensure that the contents of [fs](./fs) are correctly appended to the ROM.
