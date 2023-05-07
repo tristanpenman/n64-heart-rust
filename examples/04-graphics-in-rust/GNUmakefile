@@ -9,15 +9,16 @@ all: $(FINAL_ROM)
 
 $(CARGO_N64_ROM): $(shell find src -type f)
 	@echo Building $@...
-	cargo n64 build --ipl3 $(IPL3)
+	@cargo n64 build --ipl3 $(IPL3)
 
-$(FS_BIN): $(shell find fs -type f )
+$(FS_BIN): $(shell find fs -type f)
 	@echo Building $@...
 	@cd fs; cat index.txt | xargs cat > ../$(FS_BIN)
 
 $(FINAL_ROM): $(CARGO_N64_ROM) $(FS_BIN)
-	@echo Building $@...
+	@echo Finalising $@...
 	@cat $(CARGO_N64_ROM) $(FS_BIN) > $(FINAL_ROM)
+	@rs64romtool chksum $@ $@
 
 .PHONY: clean
 clean:

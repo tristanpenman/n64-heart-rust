@@ -23,7 +23,9 @@ The N64 IPL3 binary can be found in the SDK, or extracted from a ROM.
 
 ## Build
 
-To build with an existing IPL3 binary blob:
+A simple Makefile has been included in this project, meaning the easiest way to build the ROM is to run `make`.
+
+To build directly using `cargo`, with an existing IPL3 binary blob:
 
     cargo n64 build --ipl3 <path-to-ipl3.bin>
 
