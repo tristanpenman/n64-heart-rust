@@ -1,11 +1,11 @@
 {
   "arch": "mips",
   "cpu": "mips3",
-  "data-layout": "E-m:m-p:32:32-i8:8:32-i16:16:32-i64:64-n32-S64",
+  "data-layout": "E-m:m-p:32:32-i8:8:32-i16:16:32-i64:64-n32:64-S64",
   "dynamic-linking": true,
   "env": "",
   "executables": true,
-  "features": "+mips3,+noabicalls",
+  "features": "+mips3,+noabicalls,+gp64,+fpxx,+nooddspreg",
     "has-rpath": true,
   "linker": "rust-lld",
   "linker-flavor": "ld.lld",

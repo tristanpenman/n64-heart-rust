@@ -54,13 +54,3 @@ In order to compile Rust for the N64, we have to tell `rustc` about the target a
 Our [Cargo.toml](./Cargo.toml) file is pretty minimal, and just says that we're building a static library. The output will be a `.a` file, in ELF format, that will be linked into our final ROM. The name of the library will be `libminimal`.
 
 Linking is specified (in great detail) in `calling-rust-from-c.ld`. This file is almost unchanged from [old-school-c.ld](../01-old-school-c/old-school-c.ld) in example 1, except that we include the relevant sections from `libminimal.a`.
-
-## Known Issues
-
-Inconsistent build flags:
-
-```
-mips-n64-ld: warning: build/calling-rust-from-c.elf uses -mdouble-float (set by build/asm/rom_header.o), target/mips-n64-elf/debug/libminimal.a(minimal-60569bb7228f5707.1h9y3z07wpttnsvk.rcgu.o) uses -mgp32 -mfp64
-```
-
-Doesn't affect the stability of this example, but could become relevant if floating point operations are involved.
