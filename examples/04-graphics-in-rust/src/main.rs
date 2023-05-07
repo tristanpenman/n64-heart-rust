@@ -24,9 +24,10 @@ enum Slide {
     Image(usize),
 }
 
-const SLIDES: [Slide;2] = [
+const SLIDES: [Slide;3] = [
+    Slide::Image(0),
+    Slide::Image(1),
     Slide::Text(TITLE),
-    Slide::Image(0)
 ];
 
 enum ProgressionState {
@@ -121,13 +122,13 @@ const TITLE: &'static str = "
 
 
 
-
-         Rust on the Nintendo 64 
-
+       Let's be serious, though...
 
 
 
-        'We have the technology.'
+
+
+
 
 
 
