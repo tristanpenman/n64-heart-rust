@@ -18,7 +18,7 @@ These required some minor modifications to compile, which are included here in [
 Install cargo-n64:
 
 ```
-cargo install cargo-n64
+cargo +nightly-2022-06-21 install --git https://github.com/rust-console/cargo-n64/ --rev 98f23023dcd2eae21484179309f58eb7ddd5bfd5
 ```
 
 Install rs64-romtool (used to update checksum at the end):
