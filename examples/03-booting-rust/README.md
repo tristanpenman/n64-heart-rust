@@ -15,9 +15,11 @@ This example is pure Rust, so there are no SDK dependencies. It does, however, r
 * [cargo-n64](https://github.com/rust-console/cargo-n64) - A `cargo` subcommand to build Nintendo 64 ROMs in Rust
 * [N64 IPL3](https://retrocomputing.stackexchange.com/questions/14189/what-is-the-nintendo-64-ipl3-and-how-could-it-be-created-by-rust-developers) - boot code for the N64
 
-You can install `cargo-n64` from crates.io:
+You can install `cargo-n64` using cargo install:
 
-    cargo install cargo-n64
+    cargo +nightly-2022-06-21 install --git https://github.com/rust-console/cargo-n64/ --rev 98f23023dcd2eae21484179309f58eb7ddd5bfd5
+
+NOTE: crates.io has an old version of `cargo-n64` which uses an old toolchain (nightly-2021-08-07). The command above installs a known working version from git.
 
 The N64 IPL3 binary can be found in the SDK, or extracted from a ROM.
 
