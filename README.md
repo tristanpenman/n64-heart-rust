@@ -52,6 +52,14 @@ The aim of the next example, [06-libdragon-in-rust](./examples/06-libdragon-in-r
 
 The aim of the final example is to show how Rust can be used for 3D graphics.
 
+## Tools
+
+1. [Texture Converter](#texture-converter)
+
+### Texture Converter
+
+A small tool for converting images from PNG to RGBA5551 format, appropriate for use with the N64.
+
 ## Notes
 
 Various notes about Nintendo 64 architecture and development can be found in the [notes](./notes) directory.
