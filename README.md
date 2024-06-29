@@ -2,11 +2,25 @@
 
 # N64 💛 Rust
 
-This repo contains code for a talk given at the Melbourne Rust Meetup, on using Rust on the Nintendo 64. The examples demonstrate various ways that Rust can be used to program the Nintendo 64.
+This repo contains content prepared for a talk at the [Melbourne Rust Meetup](https://www.meetup.com/rust-melbourne/), on the state of Rust on the Nintendo 64.
 
-If you would like to see the slides from the talk, these can be found in [slides.pdf](./slides.pdf).
+## Background
 
-## Examples
+The motivation for this talk stems from my initial exploration into the N64 Homebrew scene. While there was a wealth of information available for the C programming language, I found it difficult to get a handle on the state of Rust on Nintendo 64. My questions included:
+
+* What libraries are available, and how safe/mature are they for non-trivial projects?
+* Which tools should I use for handling assets?
+* Is it possible to use 3D graphics (yet)?
+
+This repo is an attempt to collect that information in one place, and to update the content from my talk with the latest developments.
+
+### Slides
+
+This README has been considerably revised since I first prepared content for the talk. If you would like to see the original slides, these can be found in [slides.pdf](./slides.pdf).
+
+### Code
+
+For those looking for code, here is the list of examples that were covered in the talk, updated as necessary:
 
 1. [Old School C](#old-school-c)
 2. [Calling Rust from C](#calling-rust-from-c)
@@ -15,6 +29,56 @@ If you would like to see the slides from the talk, these can be found in [slides
 5. [Libdragon in C](#libdragon-in-c)
 6. [Libdragon in Rust](#libdragon-in-rust) - Incomplete
 7. [More Graphics in Rust](#more-graphics-in-rust) - Incomplete
+
+These are described in more detail below.
+
+## Hardware
+
+Let's start by revisiting the N64 hardware specifications. First released in 1996, the N64 boasted some impressive specs for the time...
+
+* The main processor is a **64-bit NEC VR4300**, with 24KB of L1 cache. This is a MIPS R4300i-based CPU, running at 93.75 MHz. Raw performance is 125 MIPS (million instructions per second).
+* This is augmented with the **Reality Coprocessor (RCP)**, running at 62.5 MHz. This processor consists of two main components, the Reality Signal Processor (RSP), and the Reality Display Processor (RDP).
+* The system includes **4.5MB of Rambus RDRAM**. 4MB of this is visible to the CPU, with the remaining 0.5MB used by the RCP for tasks such as anti-aliasing and Z-buffering. Expandable to 9MB (8MB CPU-accessible).
+
+The RCP is an early example of a highly programmable GPU. It offers flexible graphics and audio processing capabilities, via programmable microcode.
+
+## Homebrew Scene
+
+The Nintendo 64 homebrew scene is buzzing right now. There's a very active Discord community, with yearly homebrew competitions. It used to be common for homebrew projects to use Nintendo's proprietary SDK (Libultra and NuSystem). These days, many homebrew developers choose to use [libdragon](https://github.com/DragonMinded/libdragon), an alternative SDK that has been developed from the ground up to be free and open source.
+
+All of this is in large part thanks to the existence of flash carts, which make it possible to run homemade ROMs on physical hardware, without specialised SGI hardware. Flash carts support loading games via SD card or USB, with the USB interface also being available for debugging purposes.
+
+## Libraries
+
+Programming the Nintendo 64 without software support (i.e. libraries) is a daunting task. Unlike earlier consoles, the parallelism and complexity of the RCP means that each Nintendo 64 game effectively contains its own mini operating system.
+
+### Libultra
+
+Libultra (part of the official Nintendo 64 SDK) is a library that included functions for managing memory, scheduling tasks, accessing controllers and other input devices, and interfacing with the console's graphics and audio subsystems.
+
+While not strictly necessary for Nintendo 64 development, Libultra handles some of the most basic requirements of any non-trivial ROM, and is better thought of as a minimal OS for the console.
+
+We'll see shortly that it is possible to bypass Libultra entirely, and make a functioning N64 ROM using pure Rust code.
+
+### NuSystem
+
+For many projects, even Libultra would be considered unnecessarily low-level. The official N64 SDK also included a library called NuSystem. This was designed to be easy to use (easier than Libultra!). It abstracts away many of the low-level details of programming the N64, allowing developers to focus on high-level game development.
+
+Even if you choose not to use NuSystem for your own projects, it is a good place to start for getting a grasp on N64 development, and the official SDK includes a number of examples for all the major features of the console.
+
+### Libdragon
+
+Libdragon is an open-source SDK for Nintendo 64. It aims for a complete N64 programming experience while providing programmers with modern approach to programming and debugging.
+
+Libdragon was initially focused on 2D development, but significant progress has been made on 3D support, with the latest development ([unstable](https://github.com/DragonMinded/libdragon/wiki/Unstable-branch)) branch including an OpenGL 1.1 port, with full T&L support. It also provides a very modern debugging interface.
+
+## Basics
+
+Our first step is to compile Rust for the MIPS processor in the N64. The N64's VR4300 CPU is based on the MIPS III instruction set, which happens to be an instruction set supported by `rustc`. The most straight-forward way to do this is to use `xargo`, passing in a JSON file describing the target architecture.
+
+TODO
+
+## Examples
 
 ### Old School C
 
@@ -137,6 +201,13 @@ Various notes about Nintendo 64 architecture and development can be found in the
   * Two years old at this point, and can't seem to find any examples online...
 * [rrt0](https://github.com/rust-console/rrt0)
   * Minimal Rust runtime, with a MIPS assembly entry point for N64
+
+## Research
+
+### Nust64
+
+https://github.com/rust-n64/nust64
+https://github.com/rust-n64/n64-pac
 
 ## License
 
