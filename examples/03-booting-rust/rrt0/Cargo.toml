@@ -1,6 +1,0 @@
-[package]
-name = "rrt0"
-version = "0.4.0"
-
-[dependencies]
-libm = "0.2"
