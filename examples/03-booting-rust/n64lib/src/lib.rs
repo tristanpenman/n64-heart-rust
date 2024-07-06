@@ -1,8 +1,12 @@
+#![cfg_attr(target_vendor = "nintendo64", feature(asm_experimental_arch))]
 #![no_std]
 
-extern crate rrt0;
-
 pub mod ipl3font;
+pub mod platform;
+pub mod prelude;
 pub mod vi;
 
-pub use rrt0::prelude::*;
+#[no_mangle]
+fn panic_main() -> ! {
+    panic!("Main cannot return");
+}

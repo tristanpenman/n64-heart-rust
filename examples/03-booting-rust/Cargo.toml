@@ -4,6 +4,5 @@ version = "0.1.0"
 
 [dependencies]
 n64lib = { path = "./n64lib" }
-rrt0 = { path = "./rrt0" }
 panic-halt = "0.2.0"
 volatile = "0.2.3"
