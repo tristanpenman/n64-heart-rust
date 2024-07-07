@@ -13,7 +13,9 @@ This example is based on code that has been adapted from other repos:
 
 This example is pure Rust, so there are no SDK dependencies. It does, however, require the installation of [nust64](https://github.com/rust-n64/nust64), an ELF binary to N64 ROM converter:
 
-    cargo install nust64
+```
+cargo install nust64
+```
 
 ## IPL3
 
@@ -25,15 +27,13 @@ Depending on your choice of IPL3 binary, you may need to be update [.cargo/confi
 
 ## Build
 
-A simple Makefile has been included in this project, meaning the easiest way to build the ROM is to run `make`.
+To compile a release build using `cargo`, with an existing IPL3 binary blob:
 
-To build directly using `cargo`, with an existing IPL3 binary blob:
+```
+cargo run --release
+```
 
-    cargo build
-
-Or to produce a release build:
-
-    cargo build --release
+This will produce a complete N64 ROM, located at `target/mips-nintendo64-none/release/booting-rust.z64`.
 
 ## Details
 

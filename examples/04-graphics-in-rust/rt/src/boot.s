@@ -19,7 +19,7 @@
 
 _start:
     // IPL3 copied over the first 1MB. Copy over the next MB
-    // TODO: Any way to determine the actual size of the binary? We're overcopying quite a bit here
+    // TODO: Any way to determine the actual size of the binary? Were overcopying quite a bit here
     li $t1, 0x10101000
     li $t3, 0x80100400
     li $t2, 0x1FFFFF

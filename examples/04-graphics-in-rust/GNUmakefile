@@ -1,15 +1,15 @@
 ROM_NAME := graphics-in-rust
 TARGET_DIR := target/mips-nintendo64-none/release
-CARGO_N64_ROM := $(TARGET_DIR)/$(ROM_NAME).n64
+CARGO_N64_ROM := $(TARGET_DIR)/$(ROM_NAME).z64
 FS_BIN := $(TARGET_DIR)/fs.bin
-FINAL_ROM := $(ROM_NAME).n64
+FINAL_ROM := $(TARGET_DIR)/$(ROM_NAME)-final.z64
 IPL3 := ../../common/ipl3.bin
 
 all: $(FINAL_ROM)
 
 $(CARGO_N64_ROM): $(shell find src -type f)
 	@echo Building $@...
-	@cargo n64 build --ipl3 $(IPL3)
+	@cargo run --release
 
 $(FS_BIN): $(shell find fs -type f)
 	@echo Building $@...
