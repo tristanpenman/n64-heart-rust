@@ -1,6 +1,8 @@
 # Example 2 - Calling Rust from C
 
-The easiest way for us to integrate Rust code into a Nintendo 64 ROM is to call Rust from C. Doing this allows us to compile some of our code as a Rust library, and call to that from C.
+One way we can include Rust code in a Nintendo 64 ROM is to call Rust from C. Doing this allows us to compile some of our code as a Rust library, and invoke that from C, where we need it.
+
+**Warning**: This example depends on [Xargo](https://github.com/japaric/xargo), which has been in 'maintenance mode' for several years now.
 
 ## Acknowledgements
 
@@ -21,6 +23,12 @@ rustup run $(cat rust-toolchain) -- rustup component add rust-src
 ```
 
 The version of Rust Nightly is constrained by the [rust-toolchain](./rust-toolchain) file, as later versions currently crash while compiling for MIPS.
+
+You'll also need to install Xargo:
+
+```
+cargo install xargo
+```
 
 ## Build
 
