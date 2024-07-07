@@ -1,5 +1,5 @@
 #![feature(asm_experimental_arch)]
-#![feature(lang_items)]
+// #![feature(lang_items)]
 #![feature(exclusive_range_pattern)]
 #![feature(naked_functions)]
 #![feature(start)]
