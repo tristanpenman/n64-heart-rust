@@ -1,6 +1,7 @@
 # Plan
 
 * Substantial rewrite of README (**in progress**)
+  * ~~License badge~~
   * ~~Hardware~~
   * ~~Libraries (libultra, nusys, libdragon)~~
   * Basics
@@ -14,9 +15,12 @@
     * Investigate 3D asset tools (?)
       * Blender
     * Investigate Sound tools (?)
+  * Add screenshots
+  * Add and improve diagrams
 * Update examples (**in progress**)
   * ~~Update examples 3 and 4 to use nust64~~
   * Avoid use of xargo in example 2
+  * Add example using n64-pac instead of manual definitions
   * Flesh out example 5
     * libdragon in C
   * Implement example 6
@@ -24,5 +28,4 @@
   * Implement example 7
     * More graphics in Rust
 * Bundle precompiled ROMS
-* Screenshots
-* Improved diagrams
+* Automated builds

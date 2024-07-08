@@ -10,7 +10,7 @@ This example is heavily inspired by work done by [Tristan Millar](https://github
 * [rs64-periph](https://github.com/monocasa/rs64-periph) - Memory-mapped I/O (MMIO) definitions
 * [rs64-rt](https://github.com/monocasa/rs64-rt) - Minimal startup / runtime
 
-These required some minor modifications to compile, which are included here in [periph](./periph) and [rt](./rt). The code has also been updated to be built using [nust64](https://github.com/rust-n64/nust64).
+This has been to be fully self-contained, and built using [nust64](https://github.com/rust-n64/nust64).
 
 ## Prerequisites
 
