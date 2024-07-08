@@ -1,3 +1,5 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
+
 # N64 💛 Rust
 
 This repo contains code for a talk given at the Melbourne Rust Meetup, on using Rust on the Nintendo 64. The examples demonstrate various ways that Rust can be used to program the Nintendo 64.
@@ -22,19 +24,13 @@ When working with something like the Nintendo 64, it helps to a frame of referen
 
 The next example, [02-calling-rust-from-c](./examples/02-calling-rust-from-c/), takes a small step towards using Rust, by calling Rust from C. This would allow you to write your game logic in Rust, but continue to rely on C to access SDK functionality.
 
-This example is based on MrPeanut's [N64-Rust-Sample](https://github.com/Mr-Pnut/N64-Rust-Sample) repo.
-
 ### Booting from Rust
 
 Going a step further, [03-booting-rust](./examples/03-booting-rust/) looks at how we can build an entire ROM using Rust and Cargo. This completely bypasses the Nintendo 64 SDK, and interfaces with the hardware directly. This is essentially OS development on the N64.
 
-This example is based on Jay Oster's [rrt0](https://github.com/rust-console/rrt0) repo.
-
 ### Graphics in Rust
 
 The [04-graphics-in-rust](./examples/04-graphics-in-rust) shows how Rust can be used to display simple text and full-screen images.
-
-This example is an adaptation of Tristan Miller's [n64-slides-apr](https://github.com/monocasa/n64-slides-apr), [rs64-periph](https://github.com/monocasa/rs64-periph) and [rs64-rt](https://github.com/monocasa/rs64-rt) repos, incorporating minor changes from [rrt0](https://github.com/rust-console/rrt0).
 
 ### Libdragon in C
 
