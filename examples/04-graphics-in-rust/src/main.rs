@@ -1,9 +1,7 @@
-#![no_std]
 #![no_main]
+#![no_std]
 
-extern crate periph;
-extern crate rt;
-extern crate panic_halt;
+extern crate n64lib;
 extern crate volatile;
 
 #[macro_use]
@@ -11,8 +9,8 @@ pub mod console;
 mod cont;
 mod fbcon;
 
-use periph::pi;
-use periph::vi;
+use n64lib::pi;
+use n64lib::vi;
 
 const FRAMEBUFFER_PHYS_ADDR: usize = 0x0030_0000;
 
@@ -40,7 +38,7 @@ const A_KEY: u32 = 0x8000_0000;
 const B_KEY: u32 = 0x4000_0000;
 
 #[no_mangle]
-pub unsafe extern "C" fn entry() {
+unsafe fn main() {
     console::setup(FRAMEBUFFER_PHYS_ADDR, WIDTH, HEIGHT);
 
     cont::init();

@@ -3,17 +3,6 @@ name = "graphics-in-rust"
 version = "0.1.0"
 
 [dependencies]
-rt = { path = "./rt" }
-periph = { path = "./periph" }
+n64lib = { path = "./n64lib" }
 panic-halt = "0.2.0"
 volatile = "0.2.3"
-
-[[bin]]
-name = "graphics-in-rust"
-test = false
-bench = false
-
-[profile.release]
-codegen-units = 1
-debug = true
-lto = true

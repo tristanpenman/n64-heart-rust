@@ -6,9 +6,15 @@ version = 3
 name = "graphics-in-rust"
 version = "0.1.0"
 dependencies = [
+ "n64lib",
  "panic-halt",
- "periph",
- "rt",
+ "volatile",
+]
+
+[[package]]
+name = "n64lib"
+version = "0.1.0"
+dependencies = [
  "volatile",
 ]
 
@@ -17,20 +23,6 @@ name = "panic-halt"
 version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "de96540e0ebde571dc55c73d60ef407c653844e6f9a1e2fdbd40c07b9252d812"
-
-[[package]]
-name = "periph"
-version = "0.1.0"
-dependencies = [
- "volatile",
-]
-
-[[package]]
-name = "rt"
-version = "0.1.0"
-dependencies = [
- "periph",
-]
 
 [[package]]
 name = "volatile"
