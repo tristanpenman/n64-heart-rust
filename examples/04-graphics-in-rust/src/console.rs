@@ -3,8 +3,8 @@ use core::slice;
 
 use fbcon::FramebufferConsole;
 
-use periph::uncached_mut_from_phys;
-use periph::vi;
+use n64lib::uncached_mut_from_phys;
+use n64lib::vi;
 
 use volatile::Volatile;
 

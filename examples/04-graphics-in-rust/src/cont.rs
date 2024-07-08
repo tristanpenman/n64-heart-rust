@@ -2,7 +2,7 @@
 
 use core::sync::atomic::{Ordering, compiler_fence};
 
-use periph::si;
+use n64lib::si;
 
 use volatile::Volatile;
 

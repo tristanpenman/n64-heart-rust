@@ -1,10 +1,9 @@
-#![feature(asm_experimental_arch)]
-// #![feature(lang_items)]
+#![cfg_attr(target_vendor = "nintendo64", feature(asm_experimental_arch))]
+#![no_std]
+
 #![feature(exclusive_range_pattern)]
 #![feature(naked_functions)]
 #![feature(start)]
-
-#![no_std]
 
 extern crate volatile;
 
@@ -27,6 +26,8 @@ pub mod mi;
 pub mod mips;
 pub mod pi;
 pub mod pif;
+pub mod platform;
+pub mod prelude;
 pub mod si;
 pub mod sp;
 pub mod vi;
@@ -44,4 +45,9 @@ pub fn uncached_mut_from_phys<T>(phys_addr: usize) -> Option<*mut T> {
             None
         },
     }
+}
+
+#[no_mangle]
+fn panic_main() -> ! {
+    panic!("Main cannot return");
 }
