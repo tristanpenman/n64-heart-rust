@@ -4,7 +4,7 @@ This example builds upon [03-booting-rust](../examples/03-booting-rust) by intro
 
 ## Acknowledgements
 
-This example is heavily inspired by work done by [Tristan Millar](https://github.com/monocasa):
+This example is heavily inspired by work done by [Tristan Miller](https://github.com/monocasa):
 
 * [n64-slide-apr](https://github.com/monocasa/n64-slides-apr) - Rust Meetup N64 slides from Apr 2019
 * [rs64-periph](https://github.com/monocasa/rs64-periph) - Memory-mapped I/O (MMIO) definitions

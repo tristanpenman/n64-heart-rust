@@ -6,9 +6,7 @@ This example implements a simple spinning 3D box.
 
 This example will require the following to be installed:
 
-* Modern SDK
-
-The Makefile included in this example is meant to be used with the CrashOverride95's [Modern SDK](https://crashoveride95.github.io/n64hbrew/modernsdk/index.html). Please follow the installation instructions there to install the SDK.
+* CrashOverride95's [Modern SDK](https://crashoveride95.github.io/n64hbrew/modernsdk/index.html) - The Makefile included in this example is meant to be used with the Modern SDK. Please follow the installation instructions there to install the SDK.
 
 ## Build
 

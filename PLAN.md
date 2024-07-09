@@ -20,12 +20,9 @@
 * Update examples (**in progress**)
   * ~~Update examples 3 and 4 to use nust64~~
   * Avoid use of xargo in example 2
-  * Add example using n64-pac instead of manual definitions
-  * Flesh out example 5
-    * libdragon in C
-  * Implement example 6
-    * libdragon in Rust
-  * Implement example 7
-    * More graphics in Rust
+  * Replace example 5
+    * Add example using n64-pac instead of manual definitions
+  * Replace example 6
+    * Sprites or audio ?
 * Bundle precompiled ROMS
 * Automated builds
