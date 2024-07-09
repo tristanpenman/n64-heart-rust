@@ -54,7 +54,11 @@ The aim of the final example is to show how Rust can be used for 3D graphics.
 
 ### Texture Converter
 
-A small tool for converting images from PNG to RGBA5551 format, appropriate for use with the N64.
+This repo includes a small Rust program for converting images from PNG to RGBA5551 format, appropriate for loading into textures and directly into the N64 framebuffer memory. This can be used to convert images for use with [Example 04](./examples/04-graphics-in-rust).
+
+The source code can be found in [tools/texture-converter](tools/texture-converter/).
+
+See the README in that directory contains instructions to build and use the texture converter tool.
 
 ## Notes
 

@@ -1,4 +1,3 @@
-use image;
 use image::{GenericImageView};
 use std::fs::File;
 use std::io::Write;
