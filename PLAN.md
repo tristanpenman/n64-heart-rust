@@ -4,17 +4,18 @@
   * ~~License badge~~
   * ~~Hardware~~
   * ~~Libraries (libultra, nusys, libdragon)~~
-  * Basics
+  * ~~Basics~~
     * ~~Cross-compilation~~
-    * IPL3
+    * ~~IPL3~~
   * Examples
     * Improve documentation for old examples
     * Write docs for new examples
   * Tools
-    * Texture Converter
-    * Investigate 3D asset tools (?)
+    * ~~Texture Converter~~
+      * ~~Get working again~~
+    * Investigate 3D asset tools
       * Blender
-    * Investigate Sound tools (?)
+    * Investigate Sound tools
   * Add screenshots
   * Add and improve diagrams
 * Update examples (**in progress**)
