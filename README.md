@@ -2,11 +2,9 @@
 
 # N64 💛 Rust
 
-This repo contains content prepared for a talk at the [Melbourne Rust Meetup](https://www.meetup.com/rust-melbourne/), on the state of Rust on the Nintendo 64.
+This repo contains content prepared for a talk at the [Melbourne Rust Meetup](https://www.meetup.com/rust-melbourne/), on the state of Rust on the Nintendo 64. The motivation for this talk comes from my initial exploration of the N64 Homebrew scene.
 
-## Background
-
-The motivation for this talk comes from my initial exploration of the N64 Homebrew scene. While there was a wealth of information available for the C programming language, I found it difficult to get a handle on the state of Rust on Nintendo 64. My questions included:
+While there was a wealth of information available for the C programming language, I found it difficult to get a handle on the state of Rust on Nintendo 64. My questions included:
 
 * What libraries are available, and how safe/mature are they for non-trivial projects?
 * Which tools should I use for handling assets?
