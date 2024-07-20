@@ -68,9 +68,9 @@ OBJDUMP   := mips-n64-objdump
 OBJCOPY   := mips-n64-objcopy
 
 # Rust
-CARGO       =   xargo
-CARGO_OPTS  =   --target=mips-n64-elf
-RUSTLIB     =   target/mips-n64-elf/debug/libminimal.a
+CARGO       =   cargo
+RUSTTARGET  =   mips-nintendo64-elf
+RUSTLIB     =   target/$(RUSTTARGET)/debug/libminimal.a
 
 INCLUDE_DIRS += . \
 	/usr/include/n64 \
@@ -136,7 +136,7 @@ $(BUILD_DIR)/%.o: $(BUILD_DIR)/%.c
 	$(V)$(CC) -c $(CFLAGS) -MMD -MF $(BUILD_DIR)/$*.d  -o $@ $<
 
 # Compile Rust
-$(RUSTLIB): $(RS_FILES)
+$(RUSTLIB): $(RS_FILES) $(RUSTTARGET).json
 	$(call print,Cargo:,$<,$@)
 	$(V)$(CARGO) build $(CARGO_OPTS)
 
@@ -158,7 +158,7 @@ $(ELF): $(O_FILES) $(RUSTLIB) $(BUILD_DIR)/$(LD_SCRIPT)
 	@$(PRINT) "$(GREEN)Linking ELF file:  $(BLUE)$@ $(NO_COL)\n"
 	$(V)$(LD) -L $(BUILD_DIR) -T $(BUILD_DIR)/$(LD_SCRIPT) -Map $(BUILD_DIR)/$(TARGET).map --no-check-sections \
 		-o $@ $(O_FILES) \
-		-Ltarget/mips-n64-elf/debug -lminimal \
+		-Ltarget/$(RUSTTARGET)/debug -lminimal \
 		-L/usr/lib/n64/nusys $(NUAUDIOLIB) -lnusys  -ln_audio \
 		-L/usr/lib/n64 -lultra_rom -lnustd \
 		-L$(N64_LIBGCCDIR) -lgcc

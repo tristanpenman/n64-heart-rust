@@ -20,7 +20,7 @@
   * Add and improve diagrams
 * Update examples (**in progress**)
   * ~~Update examples 3 and 4 to use nust64~~
-  * Avoid use of xargo in example 2
+  * ~~Avoid use of xargo in example 2~~
   * Replace example 5
     * Add example using n64-pac instead of manual definitions
   * Replace example 6
