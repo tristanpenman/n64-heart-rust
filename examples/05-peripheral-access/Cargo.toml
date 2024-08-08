@@ -1,0 +1,9 @@
+[package]
+name = "peripheral-access"
+version = "0.1.0"
+
+[dependencies]
+n64lib = { path = "./n64lib" }
+n64-pac = "0.3.3"
+panic-halt = "0.2.0"
+volatile = "0.2.3"
