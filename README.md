@@ -161,23 +161,35 @@ The examples in this repo will produce .z64 files, using the native big-endian l
 
 Time to look at the examples!
 
-### Old School C
+### 01: Old School C
 
-When working with something like the Nintendo 64, it helps to a frame of reference. As a starting point, [01-old-school-c](./examples/01-old-school-c/) provides the basic structure for a game written in C. It can be compiled with both legacy and modern SDKs, and includes minimal 3D graphics.
+When working with something like the Nintendo 64, it helps to a frame of reference. As a starting point,  provides the basic structure for a game written in C. It can be compiled with both legacy and modern SDKs, and includes minimal 3D graphics.
 
-### Calling Rust from C
+> [Source code](./examples/01-old-school-c/)
 
-The next example, [02-calling-rust-from-c](./examples/02-calling-rust-from-c/), takes a small step towards using Rust, by calling Rust from C. This would allow you to write your game logic in Rust, but continue to rely on C to access SDK functionality.
+### 02: Calling Rust from C
 
-### Booting from Rust
+The next example takes a small step towards using Rust, by calling Rust from C. This would allow you to write your game logic in Rust, but continue to rely on C to access SDK functionality.
 
-Now that we have some Rust code running on the N64, our next example, [03-booting-rust](./examples/03-booting-rust/), will build an entire ROM using Rust. This example is pure Rust, with the exception of a bit of MIPS assembly, which is used to bootstrap the application.
+> [Source code](./examples/02-calling-rust-from-c/)
 
-This example completely bypasses the Nintendo 64 SDK, and interfaces with the hardware directly. This is essentially OS development on the N64.
+### 03: Booting from Rust
 
-### Graphics in Rust
+_Now things get serious!_ This example shows how you can build an entire ROM using Rust, plus a little bit of MIPS assembly to bootstrap the system. This example completely bypasses the Nintendo 64 SDK, interfacing with the hardware directly.
 
-The [04-graphics-in-rust](./examples/04-graphics-in-rust) shows how Rust can be used to display simple text and full-screen images.
+> [Source code](./examples/03-booting-rust/)
+
+### 04. Graphics in Rust
+
+The next example shows how Rust can be used to display simple text and full-screen images. This makes use of memory-mapped I/O to interface directly with the framebuffer.
+
+> [Source code](./examples/04-graphics-in-rust)
+
+### 05. Peripheral Access
+
+In the previous two examples, we declared a number of low level interfaces to the N64 hardware. This example shows how we can use a [Peripheral Access Crate](https://docs.rust-embedded.org/discovery/microbit/04-meet-your-hardware/terminology.html#peripheral-access-crate-pac) to handle some of this for us.
+
+> [Source code](./examples/05-peripheral-access)
 
 ## Tools
 
@@ -187,9 +199,9 @@ This section covers tools that have been included in this repo.
 
 The first of these is a small Rust program for converting images from PNG to RGBA5551 format, appropriate for loading into textures and directly into the N64 framebuffer memory. This can be used to convert images for use with [Example 04](./examples/04-graphics-in-rust).
 
-The source code can be found in [tools/texture-converter](tools/texture-converter/).
-
 See the README in that directory contains instructions to build and use the texture converter tool.
+
+> [Source code](tools/texture-converter/)
 
 ## References
 
@@ -258,11 +270,11 @@ Various notes about Nintendo 64 architecture and development can be found in the
 
 See the [PLAN.md](PLAN.md) for a list of potential improvements to this repo.
 
-When time allows, the following examples will be added/completed to this collection:
+When time allows, I hope to add the following examples to this collection:
 
-5. [Libdragon in C](#libdragon-in-c) - Incomplete
-6. [Libdragon in Rust](#libdragon-in-rust) - Not started
-7. [More Graphics in Rust](#more-graphics-in-rust) - Not started
+6. Libdragon in C - Incomplete
+7. Libdragon in Rust - Not started
+8. More Graphics in Rust - Not started
 
 ## License
 
