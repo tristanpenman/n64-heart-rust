@@ -1,6 +1,7 @@
 #![cfg_attr(target_vendor = "nintendo64", feature(asm_experimental_arch))]
 #![no_std]
 
+pub mod ipl3font;
 pub mod platform;
 pub mod prelude;
 
