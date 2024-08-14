@@ -1,5 +1,5 @@
 [package]
-name = "graphics-in-rust"
+name = "slide-tool"
 version = "0.1.0"
 
 [dependencies]

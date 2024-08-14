@@ -28,7 +28,7 @@ This repo is an attempt to collect that information in one place, and to update 
 - [Examples](#examples)
   - [Old School C](#old-school-c)
   - [Calling Rust from C](#calling-rust-from-c)
-  - [Booting from Rust](#booting-from-rust)
+  - [Booting Rust](#booting-rust)
   - [Graphics in Rust](#graphics-in-rust)
 - [Tools](#tools)
 - [References](#references)
@@ -173,23 +173,23 @@ The next example takes a small step towards using Rust, by calling Rust from C. 
 
 > [Source code](./examples/02-calling-rust-from-c/)
 
-### 03: Booting from Rust
+### 03: Booting Rust
 
 _Now things get serious!_ This example shows how you can build an entire ROM using Rust, plus a little bit of MIPS assembly to bootstrap the system. This example completely bypasses the Nintendo 64 SDK, interfacing with the hardware directly.
 
 > [Source code](./examples/03-booting-rust/)
 
-### 04. Graphics in Rust
+### 04. Peripheral Access
+
+In the previous example, we used the low-level Video Interface (VI) to interact with the N64 hardware. This example shows how we can use a [Peripheral Access Crate](https://docs.rust-embedded.org/discovery/microbit/04-meet-your-hardware/terminology.html#peripheral-access-crate-pac) to better abstract access to memory-mapped registers.
+
+> [Source code](./examples/04-peripheral-access)
+
+### 05. Slide Tool
 
 The next example shows how Rust can be used to display simple text and full-screen images. This makes use of memory-mapped I/O to interface directly with the framebuffer.
 
-> [Source code](./examples/04-graphics-in-rust)
-
-### 05. Peripheral Access
-
-In the previous two examples, we declared a number of low level interfaces to the N64 hardware. This example shows how we can use a [Peripheral Access Crate](https://docs.rust-embedded.org/discovery/microbit/04-meet-your-hardware/terminology.html#peripheral-access-crate-pac) to handle some of this for us.
-
-> [Source code](./examples/05-peripheral-access)
+> [Source code](./examples/05-slide-tool)
 
 ## Tools
 

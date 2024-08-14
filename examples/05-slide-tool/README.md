@@ -1,6 +1,6 @@
-# Example 4 - Graphics in Rust
+# Example 5 - Slide Tool
 
-This example builds upon [03-booting-rust](../examples/03-booting-rust) by introducing some basic graphics and interactivity. We'll see that it's not too difficult to get the Nintendo 64 to display images and text using Rust.
+This example builds upon [04-peripheral-access](../examples/04-peripheral-access) by introducing some basic graphics and interactivity. We'll see that it's not too difficult to get the Nintendo 64 to display images and text using Rust.
 
 ## Acknowledgements
 

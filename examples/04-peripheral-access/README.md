@@ -1,4 +1,4 @@
-# Example 5 - Peripheral Access
+# Example 4 - Peripheral Access
 
 This example shows how we can use a Peripheral Access Crate to abstract access to the CPU and memory-mapped registers on the N64.
 
