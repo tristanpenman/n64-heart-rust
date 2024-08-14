@@ -4,7 +4,6 @@
 
 use core::ptr::read_volatile;
 
-// TODO: Heap allocate (needs std and global_allocator)
 const FRAME_BUFFER: *mut u16 = 0xA010_0000 as *mut u16;
 
 pub const WIDTH: usize = 320;
@@ -68,6 +67,15 @@ pub fn wait_for_ready() {
 pub fn next_buffer() -> *mut u16 {
     let current_fb = unsafe { read_volatile(VI_DRAM_ADDR) };
 
+    // When we get here, `VI_DRAM_ADDR` can take one of two values.
+    //
+    // By default, it will be 0xA010_0000, as set in `init()`. If we've already
+    // flipped the framebuffer, it will 0xA012_5800. This is the result of adding
+    // FRAME_BUFFER_SIZE (320 x 240 x 2 = 0x2_5800) to 0xA010_0000.
+    //
+    // This check simply returns the default FRAME_BUFFER value if those lower
+    // five bytes contain a non-zero value.
+    //
     if current_fb & 0xFFFFF != 0 {
         FRAME_BUFFER
     } else {
