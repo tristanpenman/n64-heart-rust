@@ -21,8 +21,9 @@
 * Update examples (**in progress**)
   * ~~Update examples 3 and 4 to use nust64~~
   * ~~Avoid use of xargo in example 2~~
-  * Replace example 5
-    * Add example using n64-pac instead of manual definitions
+  * Update examples 4 and 5 to use n64-pac (**in progress**)
+    * ~~Add example using n64-pac instead of manual definitions~~
+    * Update slide-tool example to use n64-pac
   * Replace example 6
     * Sprites or audio ?
 * Bundle precompiled ROMS
