@@ -3,4 +3,5 @@ name = "n64lib"
 version = "0.1.0"
 
 [dependencies]
+n64-pac = "0.3.3"
 volatile = "0.2.3"

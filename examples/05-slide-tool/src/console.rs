@@ -3,8 +3,11 @@ use core::slice;
 
 use fbcon::FramebufferConsole;
 
-use n64lib::uncached_mut_from_phys;
-use n64lib::vi;
+use n64_pac::vi::{
+    VideoInterface
+};
+
+use n64lib::gfx;
 
 use volatile::Volatile;
 
@@ -50,13 +53,14 @@ pub fn clear() {
     con().clear();
 }
 
-pub unsafe fn setup(framebuffer_phys: usize, width: usize, height: usize) {
-    let framebuffer_ptr: *mut Volatile<u16> = uncached_mut_from_phys(framebuffer_phys)
-            .unwrap();
+pub unsafe fn setup(vi: &VideoInterface, frame_buffer_phys: usize) {
 
-    FB = Some(slice::from_raw_parts_mut(framebuffer_ptr, width * height));
 
-    vi::screen_ntsc(width as u32, height as u32, vi::STATUS_BPP16, framebuffer_phys);
+    let fb_origin = (frame_buffer_phys | 0xA000_0000) as *mut Volatile<u16>;
 
-    CON = FramebufferConsole::new(width, height, fb(), 0x0000, 0xFFFE, false);
+    gfx::vi_init(&vi, frame_buffer_phys);
+
+    FB = Some(slice::from_raw_parts_mut(fb_origin, gfx::fb_width() * gfx::fb_height()));
+
+    CON = FramebufferConsole::new(gfx::fb_width(), gfx::fb_height(), fb(), 0x0000, 0xFFFE, false);
 }
