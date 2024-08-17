@@ -1,4 +1,4 @@
-ROM_NAME := graphics-in-rust
+ROM_NAME := slide-tool
 TARGET_DIR := target/mips-nintendo64-none/release
 CARGO_N64_ROM := $(TARGET_DIR)/$(ROM_NAME).z64
 FS_BIN := $(TARGET_DIR)/fs.bin
@@ -7,7 +7,7 @@ IPL3 := ../../common/ipl3.bin
 
 all: $(FINAL_ROM)
 
-$(CARGO_N64_ROM): $(shell find src -type f)
+$(CARGO_N64_ROM): $(shell find n64lib src -type f)
 	@echo Building $@...
 	@cargo run --release
 

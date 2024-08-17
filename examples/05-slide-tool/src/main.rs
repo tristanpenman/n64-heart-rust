@@ -1,21 +1,20 @@
 #![no_main]
 #![no_std]
 
+extern crate n64_pac;
 extern crate n64lib;
 extern crate volatile;
 
 #[macro_use]
-pub mod console;
+mod console;
 mod cont;
 mod fbcon;
 
+use n64_pac::vi::VideoInterface;
+use n64lib::gfx;
 use n64lib::pi;
-use n64lib::vi;
 
-const FRAMEBUFFER_PHYS_ADDR: usize = 0x0030_0000;
-
-const WIDTH: usize = 320;
-const HEIGHT: usize = 240;
+const FRAME_BUFFER_PHYS_ADDR: usize = 0x0010_0000;
 
 enum Slide {
     Text(&'static str),
@@ -39,12 +38,14 @@ const B_KEY: u32 = 0x4000_0000;
 
 #[no_mangle]
 unsafe fn main() {
-    console::setup(FRAMEBUFFER_PHYS_ADDR, WIDTH, HEIGHT);
+    let vi = unsafe { VideoInterface::new() };
 
+    console::setup(&vi, FRAME_BUFFER_PHYS_ADDR);
     cont::init();
 
-    let mut cur_slide_num: usize = 0;
+    // gfx::vi_swap_buffer(&vi);
 
+    let mut cur_slide_num: usize = 0;
     let mut key_state = ProgressionState::WaitingForDown;
 
     loop {
@@ -58,12 +59,10 @@ unsafe fn main() {
             }
             &Slide::Image(offset) => {
                 let cart_data_base = 0x1010_1000;
-                let image_size = WIDTH * HEIGHT * 2;
-                let cart_image_base = (image_size * offset) + cart_data_base;
+                let image_size = gfx::fb_width() * gfx::fb_height() * 2;
+                let cart_image_base = image_size * offset + cart_data_base;
 
-                pi::start_transfer_to_dram(FRAMEBUFFER_PHYS_ADDR, 
-                        image_size, cart_image_base);
-
+                pi::start_transfer_to_dram(FRAME_BUFFER_PHYS_ADDR, image_size, cart_image_base);
                 pi::block_until_done();
             }
         }
@@ -106,7 +105,7 @@ unsafe fn main() {
 
         key_state = new_key_state;
 
-        vi::wait_for_vblank();
+        gfx::vi_wait_for_vblank(&vi);
     }
 }
 
