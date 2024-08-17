@@ -4,7 +4,6 @@ use n64_pac::vi::{
     AntiAliasMode,
     BurstReg,
     ColorDepth,
-    CtrlReg,
     HSyncLeapReg,
     HSyncReg,
     HVideoReg,
@@ -21,19 +20,9 @@ const HEIGHT: usize = 240;
 const FRAME_BUFFER_SIZE: usize = WIDTH * HEIGHT * 2;
 
 pub fn vi_init(vi: &VideoInterface, frame_buffer_phys: usize) {
-    // // Clear both frame buffers to black
-    // for i in 0..WIDTH * HEIGHT {
-    //     let p = (frame_buffer_phys + i * 4) as *mut u32;
-    //     unsafe {
-    //         *p = 0x1001_1001;
-    //     }
-    // }
-
     // Set control register (0x320E)
     let mut value = vi.ctrl.read();
     value.set_depth(ColorDepth::BPP16);
-    // value.set_gamma_dither_enable(true);
-    // value.set_gamma_enable(true);
     value.set_aa_mode(AntiAliasMode::ResamplingOnly);
     value.set_pixel_advance(1);
     vi.ctrl.write(value);
@@ -57,13 +46,11 @@ pub fn vi_init(vi: &VideoInterface, frame_buffer_phys: usize) {
 pub fn vi_next_buffer(vi: &VideoInterface) -> u32 {
     let origin = vi.origin.read();
 
-    origin
-
-    // if origin & 0xFFFFF != 0 {
-    //     (origin & 0xFFF00000) as u32
-    // } else {
-    //     (origin as usize + FRAME_BUFFER_SIZE) as u32
-    // }
+    if origin & 0xFFFFF != 0 {
+        (origin & 0xFFF00000) as u32
+    } else {
+        (origin as usize + FRAME_BUFFER_SIZE) as u32
+    }
 }
 
 pub fn vi_swap_buffer(vi: &VideoInterface) {

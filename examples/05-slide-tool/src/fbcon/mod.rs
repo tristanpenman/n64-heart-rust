@@ -45,7 +45,8 @@ impl <'a, T: 'a + Copy> FramebufferConsole<'a, T> {
         })
     }
 
-    pub fn clear(&mut self) {
+    pub fn clear(&mut self, buffer: &'a mut [Volatile<T>]) {
+        self.buffer = buffer;
         self.char_buffer = ['\0'; NUM_CHARS];
         self.cur_x = 0;
         self.cur_y = 0;
