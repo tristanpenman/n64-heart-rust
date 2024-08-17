@@ -62,9 +62,9 @@ pub fn vi_wait_for_vblank(vi: &VideoInterface) {
 }
 
 pub fn fb_height() -> usize {
-  HEIGHT
+    HEIGHT
 }
 
 pub fn fb_width() -> usize {
-  WIDTH
+    WIDTH
 }
