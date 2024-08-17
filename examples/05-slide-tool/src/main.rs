@@ -43,8 +43,6 @@ unsafe fn main() {
     console::setup(&vi, FRAME_BUFFER_PHYS_ADDR);
     cont::init();
 
-    // gfx::vi_swap_buffer(&vi);
-
     let mut cur_slide_num: usize = 0;
     let mut key_state = ProgressionState::WaitingForDown;
 
@@ -53,7 +51,7 @@ unsafe fn main() {
 
         match cur_slide {
             &Slide::Text(text) => {
-                console::clear();
+                console::clear(gfx::vi_next_buffer(&vi) as usize);
                 println!("{}", text);
                 console::flush();
             }
@@ -62,7 +60,7 @@ unsafe fn main() {
                 let image_size = gfx::fb_width() * gfx::fb_height() * 2;
                 let cart_image_base = image_size * offset + cart_data_base;
 
-                pi::start_transfer_to_dram(FRAME_BUFFER_PHYS_ADDR, image_size, cart_image_base);
+                pi::start_transfer_to_dram(gfx::vi_next_buffer(&vi) as usize, image_size, cart_image_base);
                 pi::block_until_done();
             }
         }
@@ -106,6 +104,7 @@ unsafe fn main() {
         key_state = new_key_state;
 
         gfx::vi_wait_for_vblank(&vi);
+        gfx::vi_swap_buffer(&vi);
     }
 }
 
