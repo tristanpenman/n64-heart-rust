@@ -26,7 +26,7 @@ pub const SI_MMIO_BASE_PHYS: usize = 0x0480_0000;
 pub mod console;
 pub mod cont;
 pub mod gfx;
-pub mod pi;
+pub mod periph;
 pub mod platform;
 pub mod prelude;
 

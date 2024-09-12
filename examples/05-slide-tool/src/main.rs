@@ -5,13 +5,14 @@ extern crate n64_pac;
 extern crate n64lib;
 extern crate volatile;
 
+use n64_pac::pi::PeripheralInterface;
 use n64_pac::si::SerialInterface;
 use n64_pac::vi::VideoInterface;
 
 use n64lib::console;
 use n64lib::cont;
 use n64lib::gfx;
-use n64lib::pi;
+use n64lib::periph;
 use n64lib::{print,println};
 
 const FRAME_BUFFER_PHYS_ADDR: usize = 0x0010_0000;
@@ -38,6 +39,7 @@ const B_KEY: u32 = 0x4000_0000;
 
 #[no_mangle]
 unsafe fn main() {
+    let pi = unsafe { PeripheralInterface::new() };
     let si = unsafe { SerialInterface::new() };
     let vi = unsafe { VideoInterface::new() };
 
@@ -61,8 +63,8 @@ unsafe fn main() {
                 let image_size = gfx::fb_width() * gfx::fb_height() * 2;
                 let cart_image_base = image_size * offset + cart_data_base;
 
-                pi::start_transfer_to_dram(gfx::vi_next_buffer(&vi) as usize, image_size, cart_image_base);
-                pi::block_until_done();
+                periph::start_transfer_to_dram(&pi, gfx::vi_next_buffer(&vi) as usize, image_size, cart_image_base);
+                periph::block_until_done(&pi);
             }
         }
 

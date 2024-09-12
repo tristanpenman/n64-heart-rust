@@ -19,6 +19,10 @@ const HEIGHT: usize = 240;
 
 const FRAME_BUFFER_SIZE: usize = WIDTH * HEIGHT * 2;
 
+// ----------------------------------------------------------------------------
+// VI helpers
+// ----------------------------------------------------------------------------
+
 pub fn vi_init(vi: &VideoInterface, frame_buffer_phys: usize) {
     // Set control register (0x320E)
     let mut value = vi.ctrl.read();
@@ -60,6 +64,10 @@ pub fn vi_swap_buffer(vi: &VideoInterface) {
 pub fn vi_wait_for_vblank(vi: &VideoInterface) {
     while vi.v_current.read() != 0x1E0 {}
 }
+
+// ----------------------------------------------------------------------------
+// Higher level interface
+// ----------------------------------------------------------------------------
 
 pub fn fb_height() -> usize {
     HEIGHT
