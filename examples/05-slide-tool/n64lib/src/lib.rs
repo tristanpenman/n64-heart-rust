@@ -23,10 +23,14 @@ pub const PI_MMIO_BASE_PHYS: usize = 0x0460_0000;
 pub const RI_MMIO_BASE_PHYS: usize = 0x0470_0000;
 pub const SI_MMIO_BASE_PHYS: usize = 0x0480_0000;
 
+pub mod console;
+pub mod cont;
 pub mod gfx;
 pub mod pi;
 pub mod platform;
 pub mod prelude;
+
+mod fbcon;
 
 pub const fn uncached_mut_from_phys_unchecked<T>(phys_addr: usize) -> *mut T {
     (phys_addr + UNCACHED_BASE) as *mut T
@@ -46,4 +50,16 @@ pub fn uncached_mut_from_phys<T>(phys_addr: usize) -> Option<*mut T> {
 #[no_mangle]
 fn panic_main() -> ! {
     panic!("Main cannot return");
+}
+
+#[macro_export]
+macro_rules! print {
+    ($($arg:tt)*) => ($crate::console::print_con((format_args!($($arg)*))));
+}
+
+#[macro_export]
+macro_rules! println {
+    () => (print!("\n"));
+    ($fmt:expr) => (print!(concat!($fmt, "\n")));
+    ($fmt:expr, $($arg:tt)*) => (print!(concat!($fmt, "\n"), $($arg)*));
 }
