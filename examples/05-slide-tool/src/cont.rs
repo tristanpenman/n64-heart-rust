@@ -2,9 +2,13 @@
 
 use core::sync::atomic::{Ordering, compiler_fence};
 
-use n64lib::si;
+use n64_pac::si::{SerialInterface};
 
 use volatile::Volatile;
+
+// ----------------------------------------------------------------------------
+// ScanPacket
+// ----------------------------------------------------------------------------
 
 #[repr(align(64))]
 struct ScanPacket {
@@ -32,27 +36,50 @@ impl ScanPacket {
     }
 }
 
-pub fn init() {
-    unsafe {
-        let init_packet_addr = (&INIT_PACKET as *const ScanPacket) as usize;
-
-        si::dma_wait();
-
-        si::write_pif(init_packet_addr);
-
-        si::dma_wait();
-    }
-}
-
 static mut SCAN_PACKET: ScanPacket = ScanPacket {
     values: [0; 8],
 };
 
-pub fn scan() -> Option<u32> {
+// ----------------------------------------------------------------------------
+// SI helpers
+// ----------------------------------------------------------------------------
+
+pub unsafe fn si_dma_wait(si: &SerialInterface) {
+    while {
+        let value = si.status.read();
+        value.dma_busy() | value.io_busy()
+    } { }
+}
+
+pub unsafe fn si_write_pif(si: &SerialInterface, dram_addr: usize) {
+    si.dram_addr.write(dram_addr as u32);
+    si.pif_ad_wr64b.write(0x1fc0_07c0);
+}
+
+pub unsafe fn si_read_pif(si: &SerialInterface, dram_addr: usize) {
+    si.dram_addr.write(dram_addr as u32);
+    si.pif_ad_rd64b.write(0x1fc0_07c0);
+}
+
+// ----------------------------------------------------------------------------
+// Higher level interface
+// ----------------------------------------------------------------------------
+
+pub fn setup(si: &SerialInterface) {
+    unsafe {
+        let init_packet_addr = (&INIT_PACKET as *const ScanPacket) as usize;
+
+        si_dma_wait(si);
+        si_write_pif(si, init_packet_addr);
+        si_dma_wait(si);
+    }
+}
+
+pub fn scan(si: &SerialInterface) -> Option<u32> {
     Some(unsafe {
         let scan_packet_addr = (&mut SCAN_PACKET as *mut ScanPacket) as usize;
 
-        si::read_pif(scan_packet_addr);
+        si_read_pif(si, scan_packet_addr);
 
         compiler_fence(Ordering::AcqRel);
 

@@ -27,7 +27,6 @@ pub mod gfx;
 pub mod pi;
 pub mod platform;
 pub mod prelude;
-pub mod si;
 
 pub const fn uncached_mut_from_phys_unchecked<T>(phys_addr: usize) -> *mut T {
     (phys_addr + UNCACHED_BASE) as *mut T

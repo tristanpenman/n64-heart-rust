@@ -10,7 +10,9 @@ mod console;
 mod cont;
 mod fbcon;
 
+use n64_pac::si::SerialInterface;
 use n64_pac::vi::VideoInterface;
+
 use n64lib::gfx;
 use n64lib::pi;
 
@@ -38,10 +40,11 @@ const B_KEY: u32 = 0x4000_0000;
 
 #[no_mangle]
 unsafe fn main() {
+    let si = unsafe { SerialInterface::new() };
     let vi = unsafe { VideoInterface::new() };
 
     console::setup(&vi, FRAME_BUFFER_PHYS_ADDR);
-    cont::init();
+    cont::setup(&si);
 
     let mut cur_slide_num: usize = 0;
     let mut key_state = ProgressionState::WaitingForDown;
@@ -65,7 +68,7 @@ unsafe fn main() {
             }
         }
 
-        let keys = cont::scan().unwrap();
+        let keys = cont::scan(&si).unwrap();
 
         let new_key_state = match &key_state {
             &ProgressionState::WaitingForDown => {
