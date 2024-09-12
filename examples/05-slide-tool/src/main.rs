@@ -5,16 +5,14 @@ extern crate n64_pac;
 extern crate n64lib;
 extern crate volatile;
 
-#[macro_use]
-mod console;
-mod cont;
-mod fbcon;
-
 use n64_pac::si::SerialInterface;
 use n64_pac::vi::VideoInterface;
 
+use n64lib::console;
+use n64lib::cont;
 use n64lib::gfx;
 use n64lib::pi;
+use n64lib::{print,println};
 
 const FRAME_BUFFER_PHYS_ADDR: usize = 0x0010_0000;
 

@@ -2,26 +2,13 @@ use core::fmt;
 use core::slice;
 
 use fbcon::FramebufferConsole;
+use gfx;
 
 use n64_pac::vi::VideoInterface;
-use n64lib::gfx;
 
 use volatile::Volatile;
 
 static mut CON: Option<FramebufferConsole<'static, u16>> = None;
-
-#[macro_export]
-macro_rules! print {
-    ($($arg:tt)*) => ($crate::console::print_con((format_args!($($arg)*))));
-}
-
-#[macro_export]
-macro_rules! println {
-    () => (print!("\n"));
-    ($fmt:expr) => (print!(concat!($fmt, "\n")));
-    ($fmt:expr, $($arg:tt)*) => (print!(concat!($fmt, "\n"), $($arg)*));
-}
-
 
 fn con() -> &'static mut FramebufferConsole<'static, u16> {
      unsafe { match CON {
