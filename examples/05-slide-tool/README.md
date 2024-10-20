@@ -59,3 +59,11 @@ cd ..
 ```
 
 The final ROM will be located at `target/mips-nintendo64-none/release/graphics-in-rust-final.z64`
+
+### Replacing Graphics
+
+The directory [fs](./fs) includes graphics that are appended to the ROM. There are two .png files, which are the original images, and two .bin files, which are the same images converted to RGBA5551 format. This is the format used for textures on the N64.
+
+To replace those .bin files with your own images, use the texture-converter tool included in this repo [here](../../tools/texture-converter/). The README file for the texture-converter project includes details for how to build the program and how to use it.
+
+The list of .bin files that will be included in the final build are in `index.txt`. Update this list if you'd like to add or remove images.
