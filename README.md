@@ -188,7 +188,7 @@ In the previous example, we used the low-level Video Interface (VI) to interact 
 
 ### 05. Slide Tool
 
-The next example shows how Rust can be used to display simple text and full-screen images. This makes use of memory-mapped I/O to interface directly with the framebuffer.
+The next example shows how Rust can be used to display simple text and full-screen images. This makes use of memory-mapped I/O to interface directly with the framebuffer. The image files displayed in this example can be generated using the [Texture Converter](#texture-converter) tool included in this repo.
 
 > [Source code](./examples/05-slide-tool)
 
@@ -198,7 +198,7 @@ This section covers tools that have been included in this repo.
 
 ### Texture Converter
 
-The first of these is a small Rust program for converting images from PNG to RGBA5551 format, appropriate for loading into textures and directly into the N64 framebuffer memory. This can be used to convert images for use with [Example 04](./examples/04-graphics-in-rust).
+The first of these is a small Rust program for converting images from PNG to RGBA5551 format, appropriate for loading into textures and directly into the N64 framebuffer memory. This can be used to convert images for use with [Example 05](./examples/05-slide-tool/).
 
 See the README in that directory contains instructions to build and use the texture converter tool.
 
