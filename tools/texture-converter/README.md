@@ -2,7 +2,7 @@
 
 A small Rust program for converting PNG images to RGBA5551 format.
 
-This can be used to produce images for use with [Example 04 - Graphics in Rust](../../examples/04-graphics-in-rust/).
+This can be used to produce images for use with [Example 05 - Slide Tool](../../examples/05-slide-tool/).
 
 > [!WARNING]
 > This is currently a work in progress.
@@ -25,8 +25,8 @@ To convert a PNG file `<input>` to an RGBA5551 format file `<output>`:
 
     texture-converter <input> <output>
 
-For example, if you are running `texture-converter` from the current directory, here is how you would convert slides for [Example 04](../../examples/04-graphics-in-rust/):
+For example, if you are running `texture-converter` from the current directory, here is how you would convert slides for [Example 05](../../examples/05-slide-tool/):
 
     ./target/debug/texture-converter \
-      ../../examples/04-graphics-in-rust/fs/slide-01.png \
-      ../../examples/04-graphics-in-rust/fs/slide-01.bin
+      ../../examples/05-slide-tool/fs/slide-01.png \
+      ../../examples/05-slide-tool/fs/slide-01.bin

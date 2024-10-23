@@ -35,7 +35,7 @@ A simple Makefile has been included in this project, meaning the easiest way to 
 
 This will ensure that the contents of [fs](./fs) are correctly appended to the ROM, and the checksum is recalculated using `rs64-romtool`.
 
-The final ROM will be located at `target/mips-nintendo64-none/release/graphics-in-rust-final.z64`
+The final ROM will be located at `target/mips-nintendo64-none/release/slide-tool-final.z64`
 
 ### Manual Build
 
@@ -45,7 +45,7 @@ To build manually using `cargo` and `rs64romtool`:
 cargo run --release
 ```
 
-This will produce the N64 base ROM, located at `target/mips-nintendo64-none/release/graphics-in-rust.z64`. This contains all of the code for the example, but does not yet include the data.
+This will produce the N64 base ROM, located at `target/mips-nintendo64-none/release/slide-tool.z64`. This contains all of the code for the example, but does not yet include the data.
 
 You can then build and append the embedded file system:
 
@@ -53,12 +53,12 @@ You can then build and append the embedded file system:
 cd fs
 export TARGET_DIR=../target/mips-nintendo64-none/release/
 cat index.txt | xargs cat > ${TARGET_DIR}/fs.bin
-cat ${TARGET_DIR}/graphics-in-rust.z64 ${TARGET_DIR}/fs.bin > ${TARGET_DIR}/graphics-in-rust-final.z64
-rs64romtool chksum ${TARGET_DIR}/graphics-in-rust-final.z64 ${TARGET_DIR}/graphics-in-rust-final.z64
+cat ${TARGET_DIR}/slide-tool.z64 ${TARGET_DIR}/fs.bin > ${TARGET_DIR}/slide-tool-final.z64
+rs64romtool chksum ${TARGET_DIR}/slide-tool-final.z64 ${TARGET_DIR}/slide-tool-final.z64
 cd ..
 ```
 
-The final ROM will be located at `target/mips-nintendo64-none/release/graphics-in-rust-final.z64`
+The final ROM will be located at `target/mips-nintendo64-none/release/slide-tool-final.z64`
 
 ### Replacing Graphics
 
