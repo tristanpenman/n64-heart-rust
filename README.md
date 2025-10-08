@@ -25,15 +25,16 @@ This repo is an attempt to collect that information in one place, and to update 
   - [Bootstrap Code](#bootstrap-code)
   - [Barebones Development](#barebones-development)
   - [ROM Formats](#rom-formats)
-- [Examples](#examples)
+- [Prerequisites](#prerequisites)
+- [Examples 1-5](#examples-1-5)
   - [Old School C](#01-old-school-c)
   - [Calling Rust from C](#02-calling-rust-from-c)
   - [Booting Rust](#03-booting-rust)
   - [Peripheral Access](#04-peripheral-access)
   - [Slide Tool](#05-slide-tool)
 - [Tools](#tools)
+  - [Texture Converter](#texture-converter)
 - [References](#references)
-- [Future](#future)
 
 ## Hardware
 
@@ -158,7 +159,35 @@ Although it is trivial to convert between these formats, which one is used will 
 
 The examples in this repo will produce .z64 files, using the native big-endian layout of the Nintendo 64.
 
-## Examples
+## Prerequisites
+
+Before you get started, clone the repo:
+
+```
+git clone git@github.com:tristanpenman/n64-heart-rust.git
+cd n64-heart-rust
+```
+
+### Dockerfile for Examples 1-5
+
+If you would rather avoid installing the toolchains locally, a Dockerfile is provided that bundles the dependencies required for
+examples 1-5. This includes [CrashOverride95's Modern SDK](https://crashoveride95.github.io/modernsdk) and [nust64](https://crates.io/crates/nust64).
+
+Start by building the image from the repository root:
+
+```
+docker build -t n64-heart-rust-examples .
+```
+
+You can then start a container that has the repository mounted at `/workspace`:
+
+```
+docker run --user "$(id -u):$(id -g)" --rm -it -v "$(pwd)":/workspace n64-heart-rust-examples
+```
+
+Inside the container you will be able to run the existing `make` and `cargo` commands for the first five examples.
+
+## Examples 1-5
 
 Time to look at the examples!
 
@@ -266,16 +295,6 @@ Various notes about Nintendo 64 architecture and development can be found in the
 * [n64-systemtest](https://github.com/lemmy-64/n64-systemtest)
   * A comprehensive system test written in Rust, built using [nust64](https://github.com/rust-n64/nust64)
   * Works on real hardware
-
-## Future
-
-See the [PLAN.md](PLAN.md) for a list of potential improvements to this repo.
-
-When time allows, I hope to add the following examples to this collection:
-
-6. Libdragon in C - Incomplete
-7. Libdragon in Rust - Not started
-8. More Graphics in Rust - Not started
 
 ## License
 
