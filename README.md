@@ -1,19 +1,13 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
-
 # N64 💛 Rust
 
-This repo contains content prepared for a talk at the [Melbourne Rust Meetup](https://www.meetup.com/rust-melbourne/), on the state of Rust on the Nintendo 64. The motivation for this talk comes from my initial exploration of the N64 Homebrew scene.
+> [!IMPORTANT]
+> **This project has been archived and is no longer maintained.** It remains available as a historical reference. For current Nintendo 64 development, see [libdragon](https://github.com/DragonMinded/libdragon), the [Rust N64 project](https://github.com/rust-n64), and the [N64brew community](https://n64brew.dev/).
+>
+> Also check out sarchar's [libdragon-rs](https://github.com/sarchar/libdragon-rs) project, which offers Rust bindings for libdragon.
 
-While there was a wealth of information available for the C programming language, I found it difficult to get a handle on the state of Rust on Nintendo 64. My questions included:
+This repo contains content for a talk at the [Melbourne Rust Meetup](https://www.meetup.com/rust-melbourne/), on the state of Rust on the Nintendo 64.
 
-* What libraries are available, and how safe/mature are they for non-trivial projects?
-* Which tools should I use for handling assets?
-* Is it possible to use 3D graphics?
-
-This repo is an attempt to collect that information in one place, and to update the content from my talk with the latest developments.
-
-> [!NOTE]
-> This README has been considerably revised since I first prepared content for the talk. If you would like to see the original slides, these can be found in [slides.pdf](./slides.pdf).
+The motivation for this talk came from my initial exploration of the N64 Homebrew scene. This README has been considerably revised since I first prepared content for the talk. If you would like to see the original slides, these can be found in [slides.pdf](./slides.pdf).
 
 ### Contents
 
@@ -35,6 +29,7 @@ This repo is an attempt to collect that information in one place, and to update 
 - [Tools](#tools)
   - [Texture Converter](#texture-converter)
 - [References](#references)
+- [License](#license)
 
 ## Hardware
 
@@ -143,7 +138,7 @@ An alternative now is to use Libdragon's custom IPL, which is available on Libdr
 > [!NOTE]
 > that the examples in this repo assume that a commercial IPL3 binary is used.
 
-#### Calling `main()`
+#### Calling main()
 
 It's worth noting that the examples in this repo include a small chunk of code, written in MIPS assembly. This code is responsible for performing some minimal setup before jumping to the `main()` function that is defined in Rust (or C, in the case of example 1).
 
@@ -236,8 +231,6 @@ See the README in that directory contains instructions to build and use the text
 ## References
 
 Various notes about Nintendo 64 architecture and development can be found in the [notes](./notes) directory.
-
-### Websites
 
 **General**
 
